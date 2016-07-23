@@ -1,0 +1,9 @@
+[submodule "lib/microbit-dal"]
+	path = lib/microbit-dal
+	url = https://github.com/lancaster-university/microbit-dal
+[submodule "lib/microbit"]
+	path = lib/microbit
+	url = https://github.com/lancaster-university/microbit
+[submodule "lib/ble"]
+	path = lib/ble
+	url = https://github.com/ARMmbed/ble.git
