@@ -3,13 +3,11 @@
 
 MicroBit uBit;
 
-int main()
-{
+int main() {
     // Initialise the micro:bit runtime.
     uBit.init();
 
     // Insert your code here!
-    uBit.serial.send("foo\n");
     uBit.display.scroll("HELLO WORLD! :)");
 
     // If main exits, there may still be other fibers running or registered event handlers etc.

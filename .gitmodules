@@ -13,3 +13,6 @@
 [submodule "lib/nRF51822"]
 	path = lib/nRF51822
 	url = https://github.com/lancaster-university/nRF51822.git
+[submodule "lib/microbit-targets"]
+	path = lib/microbit-targets
+	url = https://github.com/lancaster-university/microbit-targets.git

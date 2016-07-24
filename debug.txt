@@ -1,0 +1,9 @@
+https://docs.mbed.com/docs/debugging-on-mbed/en/latest/Debugging/debugging_microbit/
+
+pip install pyOCD
+pyocd-gdbserver --persist -t nrf51 -bh -r
+~/.platformio/packages/toolchain-gccarmnoneeabi/bin/arm-none-eabi-gdb
+
+(gdb) target remote :3333
+(gdb) load .pioenvs/bbcmicrobit/firmware.hex
+(gdb) mon reset
