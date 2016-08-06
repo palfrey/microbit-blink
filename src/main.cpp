@@ -8,7 +8,8 @@ Ticker *ticker = NULL;
 
 typedef enum {
     ALWAYS_ON = 1,
-    CYCLING
+    CYCLING,
+    TILT
 } Mode;
 
 Mode currentMode = ALWAYS_ON;
@@ -22,12 +23,17 @@ void changeBrightness() {
     uBit.display.setBrightness(brightness);
 }
 
+void onGesture(MicroBitEvent e) {
+    uBit.display.printChar(e.value + '0');
+}
+
 void setMode() {
     if (ticker)
     {
         ticker->detach();
         ticker = NULL;
     }
+    uBit.messageBus.ignore(MICROBIT_ID_GESTURE, MICROBIT_EVT_ANY, onGesture);
 
     switch(currentMode) {
         case ALWAYS_ON:
@@ -40,16 +46,23 @@ void setMode() {
             ticker = new Ticker();
             ticker->attach_us(changeBrightness, 250 * 1000);
             break;
+        case TILT:
+            uBit.messageBus.listen(MICROBIT_ID_GESTURE, MICROBIT_EVT_ANY, onGesture);
+            onGesture(MicroBitEvent(MICROBIT_ID_GESTURE, uBit.accelerometer.getGesture()));
+            break;
     }
 }
 
 void onButtonA(MicroBitEvent e) {
     switch (currentMode) {
         case ALWAYS_ON:
-            currentMode = CYCLING;
+            currentMode = TILT;
             break;
         case CYCLING:
             currentMode = ALWAYS_ON;
+            break;
+        case TILT:
+            currentMode = CYCLING;
             break;
     }
     setMode();
@@ -61,6 +74,9 @@ void onButtonB(MicroBitEvent e) {
             currentMode = CYCLING;
             break;
         case CYCLING:
+            currentMode = TILT;
+            break;
+        case TILT:
             currentMode = ALWAYS_ON;
             break;
     }
