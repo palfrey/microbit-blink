@@ -7,9 +7,10 @@ cache:
     pip: true
     directories:
         - "~/.platformio"
+        - ".piolibdeps"
 
 install:
-    - pip install -U -e git+https://github.com/platformio/platformio@feature/platformio-30#egg=platformio
+    - pip install -U -e git+https://github.com/platformio/platformio@develop#egg=platformio
 
 script:
     - platformio run
