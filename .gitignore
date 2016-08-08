@@ -1,7 +1,6 @@
 .pioenvs
+.piolibdeps
 .clang_complete
 .gcc-flags.json
 ENV
-microbit-combined.hex
 .gdb_history
-lib/readme.txt
