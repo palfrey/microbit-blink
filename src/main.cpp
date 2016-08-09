@@ -47,6 +47,7 @@ void setMode() {
             ticker->attach_us(changeBrightness, 250 * 1000);
             break;
         case TILT:
+            uBit.display.setBrightness(255);
             uBit.messageBus.listen(MICROBIT_ID_GESTURE, MICROBIT_EVT_ANY, onGesture);
             onGesture(MicroBitEvent(MICROBIT_ID_GESTURE, uBit.accelerometer.getGesture()));
             break;
