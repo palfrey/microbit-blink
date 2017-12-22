@@ -4,11 +4,15 @@
 #
 #    pip-compile --output-file requirements.txt requirements.in
 #
--e git+https://github.com/platformio/platformio@develop#egg=platformio
-bottle==0.12.9
-click==5.1
-colorama==0.3.7
-lockfile==0.12.2
-pyserial==3.1.1
-requests==2.10.0
-semantic-version==2.5.0
+arrow==0.12.0             # via platformio
+backports.functools-lru-cache==1.2.1  # via arrow
+bottle==0.12.9            # via platformio
+click==5.1                # via platformio
+colorama==0.3.7           # via platformio
+lockfile==0.12.2          # via platformio
+platformio==3.4.1
+pyserial==3.1.1           # via platformio
+python-dateutil==2.6.1    # via arrow
+requests==2.10.0          # via platformio
+semantic-version==2.5.0   # via platformio
+six==1.11.0               # via python-dateutil
