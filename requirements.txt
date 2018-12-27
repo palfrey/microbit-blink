@@ -4,15 +4,14 @@
 #
 #    pip-compile --output-file requirements.txt requirements.in
 #
-arrow==0.12.0             # via platformio
-backports.functools-lru-cache==1.2.1  # via arrow
-bottle==0.12.9            # via platformio
+bottle==0.12.16           # via platformio
+certifi==2018.11.29       # via requests
+chardet==3.0.4            # via requests
 click==5.1                # via platformio
-colorama==0.3.7           # via platformio
-lockfile==0.12.2          # via platformio
-platformio==3.4.1
-pyserial==3.1.1           # via platformio
-python-dateutil==2.6.1    # via arrow
-requests==2.10.0          # via platformio
-semantic-version==2.5.0   # via platformio
-six==1.11.0               # via python-dateutil
+colorama==0.4.1           # via platformio
+idna==2.8                 # via requests
+platformio==3.6.3
+pyserial==3.4             # via platformio
+requests==2.21.0          # via platformio
+semantic-version==2.6.0   # via platformio
+urllib3==1.24.1           # via requests
